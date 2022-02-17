@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
 
+import Routers from './routes'
+
+import {setAuthToken} from './helpers/setAuthToken'
+
 function App() {
+
+  //check jwt token
+  const token = localStorage.getItem("token");
+  if (token) {
+      setAuthToken(token);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routers/>
     </div>
   );
 }
